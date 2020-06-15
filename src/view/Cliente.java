@@ -22,15 +22,13 @@ public class Cliente {
     
      
    private JFrame janela;
-    private JPanel painelCadastro, PainelEndereco,PainelFoto;
+    private JPanel painelCadastro;
     private JLabel lblCodigo, lblNome,lblCNPJ,lblIE, lblFantasia, lblEstado, lblCidade;
     private JLabel lblRG,lblEndereco, lblNumero, lblBairro, lblComplemento, lblLogradouro, lblCEP,lblCadastro,lblCelular, lblTelefone, lblObservacao;
     private JLabel lblPrazo,lblEmail,lblCredito;
     private JTextField txtCodigo, txtNome,txtCNPJ,txtIE,txtFantasia, txtCadastro, txtRG, txtEndereco, txtNumero, txtBairro , txTComplmento, txtCEP ;
     private JTextField txtCelular, txtTelefone,txtPrazo, txtObservacao, txtEmail,txtCredito; 
-    private JComboBox cbEstado, cbCidade;
-    private JRadioButton rbMasculino, rbFeminino;
-    
+    private JComboBox cbEstado, cbCidade; 
     private JButton btnGravar,btnCancelar,btnSair ;
     
     

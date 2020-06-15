@@ -69,6 +69,12 @@ public class Principal {
          tabela = new JMenuItem("Tabelas");
          funcionarios = new JMenuItem("Funcionários");
          empresa = new JMenuItem("Empresa");
+         
+         //----------CHAMANDO CADASTRO DE EMPRESA----------------//
+         empresa.addActionListener((java.awt.event.ActionEvent evt)->{
+             Empresa cadEmpresa = new Empresa();
+             cadEmpresa.desenharTela();         
+         });
          sair = new JMenuItem("Sair");
          
          

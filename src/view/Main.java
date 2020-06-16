@@ -4,7 +4,7 @@ package view;
 public class Main {
     
      public static void main(String[] args) {
-        Funcionario c = new Funcionario();
+        Principal c = new Principal();
         c.desenharTela();
      }
 }

@@ -1,6 +1,7 @@
 package view;
 
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -8,14 +9,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class Funcionario {
 
     private JFrame janela;
-    private JPanel painelCadastro, painelTipo, painelPermissao, painelComissao;
+    private JPanel painelCadastro, painelTipo, painelPermissao, painelComissao, painelPrincipal;
     private JLabel lblCodigo, lblFuncionario, lblSenha, lblComissao;
     private JTextField txtCodigo, txtFuncionario, txtSenha, txtComissao;
-    private JComboBox cbTipo;
+    private JComboBox cbTipo;    
+    private JButton btnOK,btnCancelar;
 
     //-------------PAINEL COM ABAS-----------//
     private JPanel cadastro, baixa, alteracao, exclusao, visualizacao;
@@ -33,24 +36,38 @@ public class Funcionario {
     private JCheckBox altVenda, altCompra, altContaPagar, altFrete, altLavacao,altMaquinacao, altAlteracao;
     private JCheckBox altSaidaSac, altEntradaSac,altCamaraFria, altCompraDiv, altVendaDiv, altCaixa;
     //----------------ABA EXCLUSAO---------------//
+    
+     private JCheckBox exVenda, exCompra, exContaPagar, exFrete, exLavacao, exMaquinacao, extAlteracao;
+    private JCheckBox exSaidaSac, exEntradaSac,exCamaraFria, exCompraDiv, exVendaDiv, exCaixa;
+    
     //----------------ABA VISUALIZAÇÃO---------------//
+    
+    private JCheckBox vsVenda, vsCompra, vsContaPagar, vsFrete, vsLavacao, vsMaquinacao, vsSacarias,vsCheque,vsCamaraFria;
+    private JCheckBox vsCompraDiv, vsVendaDiv, vsCaixa, vsRespFinanceiro, vsEntradaProd, vsRelatorioViagem, vsMovimentacao,vsCupomFiscal,vsFechamentoSaldo;
+    private JCheckBox vsChequeEmitido, vsRastreabilidade, vsRastrearVenda;
+    
+    
+    
     public void desenharTela() {
 
         janela = new JFrame("Cadastro de Funcionário");
-        janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        janela.setSize(560, 645);
+        janela.setSize(540, 560);
         janela.setLayout(null);
         janela.setLocationRelativeTo(null);
+        
+        
+        
+                
 
         //-------------- CRIANDO PAINEL --------------------//
         painelCadastro = new JPanel();
         painelCadastro.setLayout(null);
-        painelCadastro.setSize(370, 100);
+        painelCadastro.setSize(410, 100);
         painelCadastro.setBorder(BorderFactory.createTitledBorder("Cadastro de Funcionário"));
         janela.add(painelCadastro);
 
-        janela.setVisible(true);
-
+        
+        
         //---------------CODIGO-----------------//
         lblCodigo = new JLabel("Código: ");
         lblCodigo.setBounds(30, 30, 60, 22);
@@ -82,32 +99,36 @@ public class Funcionario {
         painelTipo = new JPanel();
         painelTipo.setLayout(null);
         painelTipo.setBorder(BorderFactory.createTitledBorder("Tipo"));
-        painelTipo.setBounds(0, 110, 220, 80);
+        painelTipo.setBounds(0, 110, 230, 80);
         janela.add(painelTipo);
 
         //-------------COMBO TIPO---------------//
         cbTipo = new JComboBox();
-        cbTipo.setBounds(20, 30, 140, 22);
+        cbTipo.setBounds(30, 30, 150, 22);
         painelTipo.add(cbTipo);
 
         //------------CRIANDO PAINEL COMISSAO ----------------//
         painelComissao = new JPanel();
         painelComissao.setLayout(null);
-        painelComissao.setBorder(BorderFactory.createTitledBorder("Comissão %"));
-        painelComissao.setBounds(220, 110, 150, 80);
+        painelComissao.setBorder(BorderFactory.createTitledBorder("Comissão %"));        
+        painelComissao.setBounds(250, 110, 160, 80);
         janela.add(painelComissao);
 
         //----------------BONIFICAÇÃO---------------//
         txtComissao = new JTextField();
-        txtComissao.setBounds(20, 30, 110, 22);
+        txtComissao.setBounds(25, 30, 110, 22);
         painelComissao.add(txtComissao);
+        
+        
 
         //------------CRIANDO PAINEL PERMISSAO ----------------//
-        /* painelPermissao = new JPanel();
+         painelPermissao = new JPanel();
         painelPermissao.setLayout(null);        
         painelPermissao.setBorder(BorderFactory.createTitledBorder("Permissões"));
-        painelPermissao.setBounds(0,200 , 500, 500);
-        janela.add(painelPermissao);*/
+        painelPermissao.setBounds(0, 200, 410, 310);
+        janela.add(painelPermissao);
+        
+        
         //----------- PAINEL COM ABAS-----------------//
         cadastro = new JPanel();
         cadastro.setLayout(null);
@@ -126,15 +147,19 @@ public class Funcionario {
         exclusao.setSize(680, 500);
 
         visualizacao = new JPanel();
+        visualizacao.setLayout(null);
+        visualizacao.setSize(680, 500);
+        
+        
         JTabbedPane tp = new JTabbedPane();
-        tp.setBounds(0, 250, 450, 300);
+        tp.setBounds(5, 30, 390, 270);
         tp.add("Cadastro", cadastro);
         tp.add("Baixa", baixa);
         tp.add("Alteração", alteracao);
         tp.add("Exclusão", exclusao);
         tp.add("Visualização", visualizacao);
 
-        janela.add(tp);
+        painelPermissao.add(tp);
 
         //----------------ABA CADASTRO---------------//
         //-------------CHECKBOX CADASTRO DE PRODUTO----------//
@@ -258,79 +283,279 @@ public class Funcionario {
         
         
         
-        //----------------ABA CADASTRO---------------//
+        //----------------ABA ALTERAR---------------//
+        
         //-------------CHECKBOX CADASTRO DE PRODUTO----------//
         altVenda = new JCheckBox("Alterar Venda");
         altVenda.setBounds(10, 10, 120, 22);
         alteracao.add(altVenda);
 
-        //-------------CHECKBOX CADASTRO DE CLIENTE----------//
+        //-------------CHECKBOX ALTERAR COMPRA----------//
         altCompra = new JCheckBox("Alterar Compra");
         altCompra.setBounds(10, 30, 120, 22);
         alteracao.add(altCompra);
 
-        //-------------CHECKBOX CADASTRO DE PRODUTO/ FORNECEDOR----------//
+        //-------------CHECKBOX ALTERAR CONTAS A PAGAR---------//
         altContaPagar = new JCheckBox("Alterar Contas a Pagar");
         altContaPagar.setBounds(10, 50, 170, 22);
         alteracao.add(altContaPagar);
 
-        //-------------CHECKBOX CADASTRO FORNECEDOR----------//
+       
+//-------------CHECKBOX ALTERAR FRETE---------//
         altFrete = new JCheckBox("Alterar Frete");
-        altFrete.setBounds(10, 70, 120, 22);
+        altFrete.setBounds(10, 70, 140, 22);
         alteracao.add(altFrete);
-
-        //-------------CHECKBOX CADASTRO MOTORISTA----------//
+        
+        
+        //-------------CHECKBOX ALTERAR LAVACAO----------//
         altLavacao = new JCheckBox("Alterar Lavação");
         altLavacao.setBounds(10, 90, 120, 22);
         alteracao.add(altLavacao);
 
-        //-------------CHECKBOX CADASTRO CAIXA----------//
+        //-------------CHECKBOX ALTERAR MAQUINACAO----------//
         altMaquinacao = new JCheckBox("Alterar Maquinação");
         altMaquinacao.setBounds(10, 110, 140, 22);
         alteracao.add(altMaquinacao);
         
-        //-------------CHECKBOX CADASTRO CAIXA----------//
+        //-------------CHECKBOX LIBERAR ALTERACAO----------//
         altAlteracao = new JCheckBox("Liberar Alteração");
         altAlteracao.setBounds(10, 130, 140, 22);
         alteracao.add(altAlteracao);
 
-        //-------------CHECKBOX CADASTRO CHEQUE----------//
+        //-------------CHECKBOX ALTERAR SAIDA SAC----------//
         altSaidaSac = new JCheckBox("Alterar Saida Sac");
         altSaidaSac.setBounds(190, 10, 140, 22);
         alteracao.add(altSaidaSac);
 
-        //-------------CHECKBOX CADASTRO DE PRODUTO ESTOQUE----------//
+        //-------------CHECKBOX ALTERAR ENTRADA SAC----------//
         altEntradaSac = new JCheckBox("Alterar Entrada Sac");
         altEntradaSac.setBounds(190, 30, 140, 22);
         alteracao.add(altEntradaSac);
 
-        //-------------CHECKBOX CADASTRO DE RESTRIÇÃO CAIXA----------//
+        //-------------CHECKBOX ALTERAR CAMARA FRIA----------//
         altCamaraFria = new JCheckBox("Alterar Câmara Fria");
         altCamaraFria.setBounds(190, 50, 190, 22);
         alteracao.add(altCamaraFria);
 
-        //-------------CHECKBOX LIBERAÇÃO FINANCEIRA----------//
+        //-------------CHECKBOX ALTERAR COMPRA DIVERSA----------//
         altCompraDiv = new JCheckBox("Alterar Compra Diversa");
         altCompraDiv.setBounds(190, 70, 180, 22);
         alteracao.add(altCompraDiv);
 
-        //-------------CHECKBOX LIBERAÇÃO CAIXA----------//
+        //-------------CHECKBOX ALTERAR VENDA DIVERSA----------//
         altVendaDiv = new JCheckBox("Alterar Venda Diversa");
         altVendaDiv.setBounds(190, 90, 180, 22);
         alteracao.add(altVendaDiv);
 
-        //-------------CHECKBOX CADASTRO DE TABELAS----------//
+        //-------------CHECKBOX ALTERAR CAIXA----------//
         altCaixa = new JCheckBox("Alterar Caixa");
         altCaixa.setBounds(190, 110, 140, 22);
         alteracao.add(altCaixa);
 
         
         
+        //----------------ABA EXCLUSAO---------------//
+        
+        //-------------CHECKBOX EXCLUIR VENDA----------//
+        exVenda = new JCheckBox("Excluir Venda");
+        exVenda.setBounds(10, 10, 120, 22);
+        exclusao.add(exVenda);
+
+        //-------------CHECKBOX EXCLUIR COMPRA----------//
+        exCompra = new JCheckBox("Excluir Compra");
+        exCompra.setBounds(10, 30, 120, 22);
+        exclusao.add(exCompra);
+
+        //-------------CHECKBOX EXCLUIR CONTAS A PAGAR---------//
+        exContaPagar = new JCheckBox("Excluir Contas a Pagar");
+        exContaPagar.setBounds(10, 50, 170, 22);
+        exclusao.add(exContaPagar);
+
+        //-------------CHECKBOX EXCLUIR FRETE----------//
+        exFrete = new JCheckBox("Excluir Frete");
+        exFrete.setBounds(10, 70, 120, 22);
+        exclusao.add(exFrete);
+
+        //-------------CHECKBOX EXCLUIR LAVACAO----------//
+        exLavacao = new JCheckBox("Excluir Lavação");
+        exLavacao.setBounds(10, 90, 120, 22);
+        exclusao.add(exLavacao);
+
+        //-------------CHECKBOX EXCLUIR MAQUINACAO----------//
+        exMaquinacao = new JCheckBox("Excluir Maquinação");
+        exMaquinacao.setBounds(10, 110, 140, 22);
+        exclusao.add(exMaquinacao);        
+        
+
+        //-------------CHECKBOX EXCLUIR SAIDA SAC----------//
+        exSaidaSac = new JCheckBox("Excluir Saida Sac");
+        exSaidaSac.setBounds(190, 10, 140, 22);
+        exclusao.add(exSaidaSac);
+
+        //-------------CHECKBOX EXCLUIR ENTRADA SAC----------//
+        exEntradaSac = new JCheckBox("Excluir Entrada Sac");
+        exEntradaSac.setBounds(190, 30, 140, 22);
+        exclusao.add(exEntradaSac);
+
+        //-------------CHECKBOX EXCLUIR CAMARA FRIA----------//
+        exCamaraFria = new JCheckBox("Excluir Câmara Fria");
+        exCamaraFria.setBounds(190, 50, 190, 22);
+        exclusao.add(exCamaraFria);
+
+        //-------------CHECKBOX EXCLUIR COMPRA DIVERSA----------//
+        exCompraDiv = new JCheckBox("Excluir Compra Diversa");
+        exCompraDiv.setBounds(190, 70, 180, 22);
+        exclusao.add(exCompraDiv);
+
+        //-------------CHECKBOX EXCLUIR VENDA DIVERSA----------//
+        exVendaDiv = new JCheckBox("Excluir Venda Diversa");
+        exVendaDiv.setBounds(190, 90, 180, 22);
+        exclusao.add(exVendaDiv);
+
+        //-------------CHECKBOX EXCLUIR CAIXA----------//
+        exCaixa = new JCheckBox("Excluir Caixa");
+        exCaixa.setBounds(190, 110, 140, 22);
+        exclusao.add(exCaixa);
         
         
         
         
         
+        
+        //----------------ABA EXCLUSAO---------------//
+        
+        //-------------CHECKBOX VISUALIZAR VENDA----------//
+        vsVenda = new JCheckBox("Visualizar Venda");
+        vsVenda.setBounds(10, 10, 140, 22);
+        visualizacao.add(vsVenda);
+
+        //-------------CHECKBOX VISUALIZAR COMPRA----------//
+        vsCompra = new JCheckBox("Visualizar Compra");
+        vsCompra.setBounds(10, 30, 140, 22);
+        visualizacao.add(vsCompra);
+
+        //-------------CHECKBOX VISUALIZAR CONTAS A PAGAR---------//
+        vsContaPagar = new JCheckBox("Visualizar Contas a Pagar");
+        vsContaPagar.setBounds(10, 50, 190, 22);
+        visualizacao.add(vsContaPagar);
+
+        //-------------CHECKBOX VISUALIZAR FRETE----------//
+        vsFrete = new JCheckBox("Visualizar Frete");
+        vsFrete.setBounds(10, 70, 120, 22);
+        visualizacao.add(vsFrete);
+
+        //-------------CHECKBOX VISUALIZAR LAVACAO----------//
+        vsLavacao = new JCheckBox("Visualizar Lavação");
+        vsLavacao.setBounds(10, 90, 120, 22);
+        visualizacao.add(vsLavacao);
+
+        //-------------CHECKBOX VISUALIZAR MAQUINACAO----------//
+        vsMaquinacao = new JCheckBox("Visualizar Maquinação");
+        vsMaquinacao.setBounds(10, 110, 140, 22);
+        visualizacao.add(vsMaquinacao);     
+        
+        
+        //-------------CHECKBOX VISUALIZAR MAQUINACAO----------//
+        vsSacarias = new JCheckBox("Visualizar Sacarias");
+        vsSacarias.setBounds(10, 130, 140, 22);
+        visualizacao.add(vsSacarias);
+        
+        
+         //-------------CHECKBOX VISUALIZAR MAQUINACAO----------//
+        vsCheque = new JCheckBox("Visualizar Cheque");
+        vsCheque.setBounds(10, 150, 140, 22);
+        visualizacao.add(vsCheque);
+        
+        
+        //-------------CHECKBOX VISUALIZAR CAMARA FRIA----------//
+        vsCamaraFria = new JCheckBox("Visualizar Câmara Fria");
+        vsCamaraFria.setBounds(10, 170, 190, 22);
+        visualizacao.add(vsCamaraFria);
+
+        //-------------CHECKBOX VISUALIZAR COMPRA DIVERSA----------//
+        vsCompraDiv = new JCheckBox("Visualizar Compra Diversa");
+        vsCompraDiv.setBounds(10, 190, 180, 22);
+        visualizacao.add(vsCompraDiv);
+
+        //-------------CHECKBOX VISUALIZAR VENDA DIVERSA----------//
+        vsVendaDiv = new JCheckBox("Visualizar Venda Diversa");
+        vsVendaDiv.setBounds(10, 210, 180, 22);
+        visualizacao.add(vsVendaDiv);
+
+        //-------------CHECKBOX VISUALIZAR CAIXA----------//
+        vsCaixa = new JCheckBox("Visualizar Caixa");
+        vsCaixa.setBounds(210, 10, 140, 22);
+        visualizacao.add(vsCaixa);
+        
+        
+        
+         //-------------CHECKBOX RELATORIO RESP/ FINANCEIRO----------//
+        vsRespFinanceiro = new JCheckBox("Relatorio Resp/Financeiro");
+        vsRespFinanceiro.setBounds(210, 30, 170, 22);
+        visualizacao.add(vsRespFinanceiro);
+        
+          //-------------CHECKBOX ENTRADA DE PRODUTO----------//
+        vsEntradaProd = new JCheckBox("Entrada Produto");
+        vsEntradaProd.setBounds(210, 50, 140, 22);
+        visualizacao.add(vsEntradaProd);
+        
+          //-------------CHECKBOX RELATORIO DE VIAGENS----------//
+        vsRelatorioViagem = new JCheckBox("Relatório de Viagens");
+        vsRelatorioViagem.setBounds(210, 70, 170, 22);
+        visualizacao.add(vsRelatorioViagem);
+        
+          //-------------CHECKBOX MOVIMENTACAO----------//
+        vsMovimentacao = new JCheckBox("Movimentação");
+        vsMovimentacao.setBounds(210, 90, 140, 22);
+        visualizacao.add(vsMovimentacao);
+        
+          //-------------CHECKBOX CUPOM FISCAL----------//
+        vsCupomFiscal = new JCheckBox("Cupom Fiscal");
+        vsCupomFiscal.setBounds(210, 110, 140, 22);
+        visualizacao.add(vsCupomFiscal);
+        
+          //-------------CHECKBOX FECHAMENTO SALDO----------//
+        vsFechamentoSaldo = new JCheckBox("Fechamento Saldo");
+        vsFechamentoSaldo.setBounds(210, 130, 140, 22);
+        visualizacao.add(vsFechamentoSaldo);
+        
+        
+        //-------------CHECKBOX CHEQUE EMITIDOS SAC---------//
+        vsChequeEmitido = new JCheckBox("Cheque Emitidos Sac");
+        vsChequeEmitido.setBounds(210, 150, 170, 22);
+        visualizacao.add(vsChequeEmitido);
+        
+        //-------------CHECKBOX RASTREABILIDADE---------//
+        vsRastreabilidade = new JCheckBox("Rastreabilidade");
+        vsRastreabilidade.setBounds(210, 170, 140, 22);
+        visualizacao.add(vsRastreabilidade);
+        
+         //-------------CHECKBOX RASTREAR TODAS AS VEBDAS---------//
+        vsRastrearVenda = new JCheckBox("Rastrear Todos Vendas");
+        vsRastrearVenda.setBounds(210, 190, 170, 22);
+        visualizacao.add(vsRastrearVenda);
+        
+        
+         // ---------------- BOTAO OK-----//
+       btnOK = new JButton("OK");
+       btnOK.setBounds(420, 450, 90, 25);       
+       btnOK.setHorizontalTextPosition(SwingConstants.RIGHT);
+        
+       janela.add(btnOK);
+        
+          // ---------------- BOTAO CANCELAR-----//
+       btnCancelar = new JButton("Cancelar");
+       btnCancelar.setBounds(420, 483, 90, 25);       
+       btnCancelar.setHorizontalTextPosition(SwingConstants.RIGHT);
+        
+       janela.add(btnCancelar);
+        
+        
+        
+        
+        
+        
+        janela.setVisible(true);
 
     }
 }

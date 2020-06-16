@@ -49,7 +49,7 @@ public class Cliente {
         
         
         
-        janela.setVisible(true);
+        
         
        
         
@@ -273,6 +273,8 @@ public class Cliente {
        btnSair.setHorizontalTextPosition(SwingConstants.RIGHT);        
        painelCadastro.add(btnSair);
          
+       
+       janela.setVisible(true);
        
          
     }

@@ -26,8 +26,7 @@ public class Empresa {
   public void desenharTela(){
         
         
-        janela = new JFrame("Cadastro de Empresa");  
-        janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        janela = new JFrame("Cadastro de Empresa");
         janela.setSize(530,330);
         janela.setLayout(null);
         janela.setLocationRelativeTo(null);
@@ -39,12 +38,6 @@ public class Empresa {
         painelCadastro.setBorder(BorderFactory.createTitledBorder("Cadastro de Empresa"));
         janela.add(painelCadastro);
         
-        
-         
-        
-            
-        
-        janela.setVisible(true);
         
         //-----------------NOME EMPRESA--------------//
        lblEmpresa = new JLabel("Empresa: ");
@@ -199,7 +192,7 @@ public class Empresa {
        janela.add(btnSair);
          
        
-         
+          janela.setVisible(true);
     }
          
         

@@ -67,9 +67,17 @@ public class Principal {
          sacarias = new JMenuItem("Sacarias");
          camarafria = new JMenuItem("Câmara Fria");
          tabela = new JMenuItem("Tabelas");
-         funcionarios = new JMenuItem("Funcionários");
-         empresa = new JMenuItem("Empresa");
          
+         
+         funcionarios = new JMenuItem("Funcionários");         
+          //----------CHAMANDO CADASTRO DE FUNCIONARIO----------------//
+         funcionarios.addActionListener((java.awt.event.ActionEvent evt)->{
+             Funcionario cadFuncionario = new Funcionario();
+             cadFuncionario.desenharTela();   
+          });
+         
+         
+         empresa = new JMenuItem("Empresa"); 
          //----------CHAMANDO CADASTRO DE EMPRESA----------------//
          empresa.addActionListener((java.awt.event.ActionEvent evt)->{
              Empresa cadEmpresa = new Empresa();

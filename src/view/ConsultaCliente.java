@@ -102,8 +102,11 @@ public class ConsultaCliente {
         
         btnNovo = new JButton("Novo");
         btnNovo.setBounds(645, 317, 60, 53);
-        btnNovo.setFont(new Font("Arial", 0, 8));
-        btnNovo.addActionListener((java.awt.event.ActionEvent evt) -> {  
+        btnNovo.setFont(new Font("Arial", 0, 8)); 
+        btnNovo.addActionListener((java.awt.event.ActionEvent evt)->{
+             CadastroCliente cadCliente = new CadastroCliente();
+             cadCliente.desenharTela(); 
+             janela.dispose();
         });
         painelConsultaCliente.add(btnNovo);
         

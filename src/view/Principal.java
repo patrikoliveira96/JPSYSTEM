@@ -15,8 +15,8 @@ public class Principal {
     
     private JFrame janela;
     private JMenuBar barra;
-    private JMenu cadastro, vendas, compras, lavacao;
-    private JMenuItem cliente, produtoforn, fornecedor, produtos,motorista,sacarias,camarafria,tabela,funcionarios,empresa,sair,teste;
+    private JMenu cadastro, vendas, compras, lavacao,cliente; 
+    private JMenuItem clientes,relatorio, relatorioCred, produtoforn, fornecedor, produtos,motorista,sacarias,camarafria,tabela,funcionarios,empresa,sair,teste;
     private JPanel painelIcon;
     
    
@@ -36,6 +36,9 @@ public class Principal {
         
         // ---------------CRIANDO O MENU --------------//
         
+        
+        
+        
         cadastro = new JMenu("Cadastros");       
         vendas = new JMenu("Vendas");
         compras = new JMenu("Compras");
@@ -52,11 +55,20 @@ public class Principal {
         painelIcon.setVisible(true);
             
         // ---------------CRIANDO O SUB MENU--------------//
-         cliente = new JMenuItem("Cliente");        
+         cliente = new JMenu("Cliente");      
+         clientes = new JMenuItem("Clientes");
+         relatorio = new JMenuItem("Relatório");
+         relatorioCred= new JMenuItem("Relatório Limite de Crédito");
+         
+         cliente.add(clientes);
+         cliente.add(relatorio);
+         cliente.add(relatorioCred);
+         
           //----------CHAMANDO CADASTRO DE CLIENTE----------------//
-         cliente.addActionListener((java.awt.event.ActionEvent evt)->{
-             CadastroCliente cadCliente = new CadastroCliente();
-             cadCliente.desenharTela();         
+         clientes.addActionListener((java.awt.event.ActionEvent evt)->{
+             ConsultaCliente cadConsCliente = new ConsultaCliente();
+             cadConsCliente.desenharTela(); 
+             
          });
          
         
@@ -91,12 +103,13 @@ public class Principal {
         barra.add(compras);
         barra.add(lavacao);
      
-        teste = new JMenuItem("teste");
+        teste = new JMenuItem("te11ste");
+        
         
         
         //------------------- ADICIONANDO OS COMPONENTES AO SUB MENU  ------------------//
         
-        cadastro.add(cliente);
+        cadastro.add(cliente);        
         cadastro.add(produtoforn);
         cadastro.add(fornecedor);
         cadastro.add(produtos);

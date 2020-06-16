@@ -18,6 +18,10 @@ public class Empresa {
     private JLabel lblEmpresa, lblFantasia,lblCNPJ,lblIE,lblEndereco,lblEstado,lblBairro, lblCidade,lblCEP,lblTelefone,lblBonificacao;
     private JTextField txtEmpresa, txtFantasia, txtCNPJ, txtIE, txtEndereco, txtEstado, txtBairro, txtCidade, txtCEP, txtTelefone,txtbonificacao;
     private JButton btnGravar,btnCancelar,btnSair,btnAlterar ;
+    
+    //painel com abas//
+    
+    private JPanel cadastro, baixa,alteracao,exclusao,vizualizao;
 
   public void desenharTela(){
         

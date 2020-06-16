@@ -11,7 +11,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class Funcionario {
+public class CadastroFuncionario {
 
     private JFrame janela;
     private JPanel painelCadastro, painelTipo, painelPermissao, painelComissao, painelPrincipal;
@@ -55,16 +55,22 @@ public class Funcionario {
         janela.setLayout(null);
         janela.setLocationRelativeTo(null);
         
-        
+        //-------------- CRIANDO PAINEL PRINCIAL --------------------//
+        painelPrincipal = new JPanel();
+        painelPrincipal.setLayout(null);
+        painelPrincipal.setSize(540, 560);
+        painelPrincipal.setBorder(BorderFactory.createTitledBorder(""));
+        janela.add(painelPrincipal);
         
                 
 
         //-------------- CRIANDO PAINEL --------------------//
         painelCadastro = new JPanel();
         painelCadastro.setLayout(null);
-        painelCadastro.setSize(410, 100);
+        painelCadastro.setBounds(0, 05, 410, 100);
+        
         painelCadastro.setBorder(BorderFactory.createTitledBorder("Cadastro de Funcionário"));
-        janela.add(painelCadastro);
+        painelPrincipal.add(painelCadastro);
 
         
         
@@ -100,7 +106,7 @@ public class Funcionario {
         painelTipo.setLayout(null);
         painelTipo.setBorder(BorderFactory.createTitledBorder("Tipo"));
         painelTipo.setBounds(0, 110, 230, 80);
-        janela.add(painelTipo);
+        painelPrincipal.add(painelTipo);
 
         //-------------COMBO TIPO---------------//
         cbTipo = new JComboBox();
@@ -112,7 +118,7 @@ public class Funcionario {
         painelComissao.setLayout(null);
         painelComissao.setBorder(BorderFactory.createTitledBorder("Comissão %"));        
         painelComissao.setBounds(250, 110, 160, 80);
-        janela.add(painelComissao);
+        painelPrincipal.add(painelComissao);
 
         //----------------BONIFICAÇÃO---------------//
         txtComissao = new JTextField();
@@ -126,7 +132,7 @@ public class Funcionario {
         painelPermissao.setLayout(null);        
         painelPermissao.setBorder(BorderFactory.createTitledBorder("Permissões"));
         painelPermissao.setBounds(0, 200, 410, 310);
-        janela.add(painelPermissao);
+        painelPrincipal.add(painelPermissao);
         
         
         //----------- PAINEL COM ABAS-----------------//
@@ -548,13 +554,13 @@ public class Funcionario {
        btnCancelar.setBounds(420, 483, 90, 25);       
        btnCancelar.setHorizontalTextPosition(SwingConstants.RIGHT);
         
-       janela.add(btnCancelar);
+       painelPrincipal.add(btnCancelar);
         
         
         
         
         
-        
+        janela.add(painelPrincipal);
         janela.setVisible(true);
 
     }

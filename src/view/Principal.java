@@ -1,6 +1,7 @@
 
 package view;
 
+import java.awt.MenuItem;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,8 +16,9 @@ public class Principal {
     private JFrame janela;
     private JMenuBar barra;
     private JMenu cadastro, vendas, compras, lavacao;
-    private JMenuItem cliente, produtoforn, fornecedor, produtos,motorista,sacarias,camarafria,tabela,funcionarios,empresa,sair;
+    private JMenuItem cliente, produtoforn, fornecedor, produtos,motorista,sacarias,camarafria,tabela,funcionarios,empresa,sair,teste;
     private JPanel painelIcon;
+    
    
     
     public void desenharTela(){
@@ -50,16 +52,14 @@ public class Principal {
         painelIcon.setVisible(true);
             
         // ---------------CRIANDO O SUB MENU--------------//
-         cliente = new JMenuItem("Cliente");
-         
+         cliente = new JMenuItem("Cliente");        
           //----------CHAMANDO CADASTRO DE CLIENTE----------------//
          cliente.addActionListener((java.awt.event.ActionEvent evt)->{
-             Cliente cadCliente = new Cliente();
+             CadastroCliente cadCliente = new CadastroCliente();
              cadCliente.desenharTela();         
          });
          
-         
-         
+        
          produtoforn = new JMenuItem("Produto/Fornecedor");
          fornecedor = new JMenuItem("Fornecedor");
          produtos = new JMenuItem("Produtos");
@@ -72,7 +72,7 @@ public class Principal {
          funcionarios = new JMenuItem("Funcionários");         
           //----------CHAMANDO CADASTRO DE FUNCIONARIO----------------//
          funcionarios.addActionListener((java.awt.event.ActionEvent evt)->{
-             Funcionario cadFuncionario = new Funcionario();
+             CadastroFuncionario cadFuncionario = new CadastroFuncionario();
              cadFuncionario.desenharTela();   
           });
          
@@ -80,7 +80,7 @@ public class Principal {
          empresa = new JMenuItem("Empresa"); 
          //----------CHAMANDO CADASTRO DE EMPRESA----------------//
          empresa.addActionListener((java.awt.event.ActionEvent evt)->{
-             Empresa cadEmpresa = new Empresa();
+             CadastroEmpresa cadEmpresa = new CadastroEmpresa();
              cadEmpresa.desenharTela();         
          });
          sair = new JMenuItem("Sair");
@@ -91,6 +91,8 @@ public class Principal {
         barra.add(compras);
         barra.add(lavacao);
      
+        teste = new JMenuItem("teste");
+        
         
         //------------------- ADICIONANDO OS COMPONENTES AO SUB MENU  ------------------//
         

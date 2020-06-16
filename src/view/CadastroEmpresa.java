@@ -11,10 +11,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class Empresa {
+public class CadastroEmpresa {
     
     private JFrame janela;
-    private JPanel painelCadastro, painelParametro;
+    private JPanel painelCadastro, painelParametro, painelPrincipal;
     private JLabel lblEmpresa, lblFantasia,lblCNPJ,lblIE,lblEndereco,lblEstado,lblBairro, lblCidade,lblCEP,lblTelefone,lblBonificacao;
     private JTextField txtEmpresa, txtFantasia, txtCNPJ, txtIE, txtEndereco, txtEstado, txtBairro, txtCidade, txtCEP, txtTelefone,txtbonificacao;
     private JButton btnGravar,btnCancelar,btnSair,btnAlterar ;
@@ -31,12 +31,20 @@ public class Empresa {
         janela.setLayout(null);
         janela.setLocationRelativeTo(null);
         
+         //-------------- CRIANDO PAINEL PRINCIAL --------------------//
+        painelPrincipal = new JPanel();
+        painelPrincipal.setLayout(null);
+        painelPrincipal.setBounds(0,02,530, 330);
+        painelPrincipal.setBorder(BorderFactory.createTitledBorder(""));
+        janela.add(painelPrincipal);
+        
+        
      //-------------- CRIANDO PAINEL --------------------//
          painelCadastro = new JPanel();
         painelCadastro.setLayout(null);
-        painelCadastro.setSize(380,280);
+        painelCadastro.setBounds(0,05,380,280);
         painelCadastro.setBorder(BorderFactory.createTitledBorder("Cadastro de Empresa"));
-        janela.add(painelCadastro);
+        painelPrincipal.add(painelCadastro);
         
         
         //-----------------NOME EMPRESA--------------//
@@ -147,7 +155,7 @@ public class Empresa {
         painelParametro = new JPanel();
         painelParametro.setLayout(null);        
         painelParametro.setBorder(BorderFactory.createTitledBorder("Parametro"));
-        painelParametro.setBounds(390,0 , 110, 80);
+        painelParametro.setBounds(390,05 , 110, 80);
         janela.add(painelParametro);
         
         
@@ -168,7 +176,7 @@ public class Empresa {
        btnGravar.setBounds(400, 160, 90, 25);       
        btnGravar.setHorizontalTextPosition(SwingConstants.RIGHT);
         
-       janela.add(btnGravar);
+       painelPrincipal.add(btnGravar);
        
        
         // ---------------- BOTAO ALTERAR-----//
@@ -176,22 +184,22 @@ public class Empresa {
        btnAlterar.setBounds(400, 190, 90, 25);       
        btnAlterar.setHorizontalTextPosition(SwingConstants.RIGHT);
         
-       janela.add(btnAlterar);
+       painelPrincipal.add(btnAlterar);
         
           // ---------------- BOTAO CANCELAR-----//
        btnCancelar = new JButton("Cancelar");
        btnCancelar.setBounds(400, 220, 90, 25);       
        btnCancelar.setHorizontalTextPosition(SwingConstants.RIGHT);
         
-       janela.add(btnCancelar);
+       painelPrincipal.add(btnCancelar);
         
          // ---------------- BOTAO SAIR-----//
        btnSair = new JButton("Sair");
        btnSair.setBounds(400, 250, 90, 25);       
        btnSair.setHorizontalTextPosition(SwingConstants.RIGHT);        
-       janela.add(btnSair);
+       painelPrincipal.add(btnSair);
          
-       
+            janela.add(painelPrincipal);
           janela.setVisible(true);
     }
          

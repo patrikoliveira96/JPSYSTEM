@@ -18,11 +18,11 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
 
-public class Cliente {
+public class CadastroCliente {
     
      
    private JFrame janela;
-    private JPanel painelCadastro;
+    private JPanel painelCadastro, painelPrincipal;
     private JLabel lblCodigo, lblNome,lblCNPJ,lblIE, lblFantasia, lblEstado, lblCidade;
     private JLabel lblRG,lblEndereco, lblNumero, lblBairro, lblComplemento, lblLogradouro, lblCEP,lblCadastro,lblCelular, lblTelefone, lblObservacao;
     private JLabel lblPrazo,lblEmail,lblCredito;
@@ -40,12 +40,21 @@ public class Cliente {
         janela.setLayout(null);
         janela.setLocationRelativeTo(null);
         
+        
+         //-------------- CRIANDO PAINEL --------------------//
+         painelPrincipal = new JPanel();
+        painelPrincipal.setLayout(null);
+        painelPrincipal.setBounds(0,05,560,645);
+        painelPrincipal.setBorder(BorderFactory.createTitledBorder(""));
+        janela.add(painelPrincipal);
+        
+        
      //-------------- CRIANDO PAINEL --------------------//
          painelCadastro = new JPanel();
         painelCadastro.setLayout(null);
-        painelCadastro.setSize(540,600);
+        painelCadastro.setBounds(0,03,540,595);
         painelCadastro.setBorder(BorderFactory.createTitledBorder("Cadastro de Clientes"));
-        janela.add(painelCadastro);
+        painelPrincipal.add(painelCadastro);
         
         
         
@@ -273,7 +282,7 @@ public class Cliente {
        btnSair.setHorizontalTextPosition(SwingConstants.RIGHT);        
        painelCadastro.add(btnSair);
          
-       
+       janela.add(painelPrincipal);
        janela.setVisible(true);
        
          

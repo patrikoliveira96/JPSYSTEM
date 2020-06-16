@@ -29,6 +29,9 @@ public class Funcionario {
     private JCheckBox baixaSaidaSac, baixaEntradaSac, baixaCamaraFria, baixaCompraDiv, baixaVendaDiv;
 
     //----------------ABA ALTERAÇÃO---------------//
+    
+    private JCheckBox altVenda, altCompra, altContaPagar, altFrete, altLavacao,altMaquinacao, altAlteracao;
+    private JCheckBox altSaidaSac, altEntradaSac,altCamaraFria, altCompraDiv, altVendaDiv, altCaixa;
     //----------------ABA EXCLUSAO---------------//
     //----------------ABA VISUALIZAÇÃO---------------//
     public void desenharTela() {
@@ -194,16 +197,140 @@ public class Funcionario {
         Tabelas.setBounds(190, 110, 140, 22);
         cadastro.add(Tabelas);
 
-        //----------------ABA BAIXA---------------//
-        //-------------CHECKBOX BAIXA COMPRAS----------//
-        baixaCompra = new JCheckBox("Baixa Compra");
-        baixaCompra.setBounds(10, 20, 120, 22);
+        
+        
+        
+        
+         //----------------ABA Baixa---------------//
+        
+        //-------------CHECKBOX CADASTRO DE PRODUTO/ FORNECEDOR----------//
+        baixaCompra = new JCheckBox("baixa Compras");
+        baixaCompra.setBounds(10, 10, 170, 22);
         baixa.add(baixaCompra);
 
         //-------------CHECKBOX BAIXA CONTAS A PAGAR----------//
         baixaContasPag = new JCheckBox("Baixa Contas a Pagar");
-        baixaContasPag.setBounds(0, 0, 0, 00);
-        alteracao.add(baixaContasPag);
+        baixaContasPag.setBounds(10, 30, 160, 22);
+        baixa.add(baixaContasPag);
+
+        //-------------CHECKBOX CADASTRO MOTORISTA----------//
+        baixaFrete = new JCheckBox("Baixa Frete");
+        baixaFrete.setBounds(10, 50, 120, 22);
+        baixa.add(baixaFrete);
+
+        //-------------CHECKBOX BAIXA LAVACAO----------//
+        baixaLavacao = new JCheckBox("Baixa Lavação");
+        baixaLavacao.setBounds(10, 70, 120, 22);
+        baixa.add(baixaLavacao);
+
+       //-------------CHECKBOX BAIXA MAQUINACAO----------//
+        baixaMaquinacao = new JCheckBox("Baixa Maquinação");
+        baixaMaquinacao.setBounds(10, 90, 160, 22);
+        baixa.add(baixaMaquinacao);
+
+        //-------------CHECKBOX BAIXA SAIDA SAC----------//
+        baixaSaidaSac = new JCheckBox("Baixa Saida Sac");
+        baixaSaidaSac.setBounds(190, 10, 140, 22);
+        baixa.add(baixaSaidaSac);
+
+        //-------------CHECKBOX BAIXA ENTRADA SAC---------//
+        baixaEntradaSac = new JCheckBox("Baixa Entrada Sac");
+        baixaEntradaSac.setBounds(190, 30, 190, 22);
+        baixa.add(baixaEntradaSac);
+
+        //-------------CHECKBOX BAIXA CAMARA FRIA----------//
+        baixaCamaraFria = new JCheckBox("Baixa Câmara Fria");
+        baixaCamaraFria.setBounds(190, 50, 160, 22);
+        baixa.add(baixaCamaraFria);
+
+        //-------------CHECKBOX BAIXA COMPRA DIVERSA ----------//
+        baixaCompraDiv = new JCheckBox("Baixa Compra Diversa");
+        baixaCompraDiv.setBounds(190, 70, 160, 22);
+        baixa.add(baixaCompraDiv);
+
+        //-------------CHECKBOX BAIXA VENDA DIVERSA---------//
+        baixaVendaDiv = new JCheckBox("Baixa Venda Diversa");
+        baixaVendaDiv.setBounds(190, 90, 160, 22);
+        baixa.add(baixaVendaDiv);
+        
+        
+        
+        
+        
+        
+        //----------------ABA CADASTRO---------------//
+        //-------------CHECKBOX CADASTRO DE PRODUTO----------//
+        altVenda = new JCheckBox("Alterar Venda");
+        altVenda.setBounds(10, 10, 120, 22);
+        alteracao.add(altVenda);
+
+        //-------------CHECKBOX CADASTRO DE CLIENTE----------//
+        altCompra = new JCheckBox("Alterar Compra");
+        altCompra.setBounds(10, 30, 120, 22);
+        alteracao.add(altCompra);
+
+        //-------------CHECKBOX CADASTRO DE PRODUTO/ FORNECEDOR----------//
+        altContaPagar = new JCheckBox("Alterar Contas a Pagar");
+        altContaPagar.setBounds(10, 50, 170, 22);
+        alteracao.add(altContaPagar);
+
+        //-------------CHECKBOX CADASTRO FORNECEDOR----------//
+        altFrete = new JCheckBox("Alterar Frete");
+        altFrete.setBounds(10, 70, 120, 22);
+        alteracao.add(altFrete);
+
+        //-------------CHECKBOX CADASTRO MOTORISTA----------//
+        altLavacao = new JCheckBox("Alterar Lavação");
+        altLavacao.setBounds(10, 90, 120, 22);
+        alteracao.add(altLavacao);
+
+        //-------------CHECKBOX CADASTRO CAIXA----------//
+        altMaquinacao = new JCheckBox("Alterar Maquinação");
+        altMaquinacao.setBounds(10, 110, 140, 22);
+        alteracao.add(altMaquinacao);
+        
+        //-------------CHECKBOX CADASTRO CAIXA----------//
+        altAlteracao = new JCheckBox("Liberar Alteração");
+        altAlteracao.setBounds(10, 130, 140, 22);
+        alteracao.add(altAlteracao);
+
+        //-------------CHECKBOX CADASTRO CHEQUE----------//
+        altSaidaSac = new JCheckBox("Alterar Saida Sac");
+        altSaidaSac.setBounds(190, 10, 140, 22);
+        alteracao.add(altSaidaSac);
+
+        //-------------CHECKBOX CADASTRO DE PRODUTO ESTOQUE----------//
+        altEntradaSac = new JCheckBox("Alterar Entrada Sac");
+        altEntradaSac.setBounds(190, 30, 140, 22);
+        alteracao.add(altEntradaSac);
+
+        //-------------CHECKBOX CADASTRO DE RESTRIÇÃO CAIXA----------//
+        altCamaraFria = new JCheckBox("Alterar Câmara Fria");
+        altCamaraFria.setBounds(190, 50, 190, 22);
+        alteracao.add(altCamaraFria);
+
+        //-------------CHECKBOX LIBERAÇÃO FINANCEIRA----------//
+        altCompraDiv = new JCheckBox("Alterar Compra Diversa");
+        altCompraDiv.setBounds(190, 70, 180, 22);
+        alteracao.add(altCompraDiv);
+
+        //-------------CHECKBOX LIBERAÇÃO CAIXA----------//
+        altVendaDiv = new JCheckBox("Alterar Venda Diversa");
+        altVendaDiv.setBounds(190, 90, 180, 22);
+        alteracao.add(altVendaDiv);
+
+        //-------------CHECKBOX CADASTRO DE TABELAS----------//
+        altCaixa = new JCheckBox("Alterar Caixa");
+        altCaixa.setBounds(190, 110, 140, 22);
+        alteracao.add(altCaixa);
+
+        
+        
+        
+        
+        
+        
+        
 
     }
 }

@@ -60,7 +60,7 @@ public class CadastroFuncionario {
         painelPrincipal.setLayout(null);
         painelPrincipal.setSize(540, 560);
         painelPrincipal.setBorder(BorderFactory.createTitledBorder(""));
-        janela.add(painelPrincipal);
+        
         
                 
 
@@ -547,7 +547,7 @@ public class CadastroFuncionario {
        btnOK.setBounds(420, 450, 90, 25);       
        btnOK.setHorizontalTextPosition(SwingConstants.RIGHT);
         
-       janela.add(btnOK);
+       painelPrincipal.add(btnOK);
         
           // ---------------- BOTAO CANCELAR-----//
        btnCancelar = new JButton("Cancelar");
@@ -555,8 +555,6 @@ public class CadastroFuncionario {
        btnCancelar.setHorizontalTextPosition(SwingConstants.RIGHT);
         
        painelPrincipal.add(btnCancelar);
-        
-        
         
         
         

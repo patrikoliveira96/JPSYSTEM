@@ -4,7 +4,7 @@ package view;
 public class Main {
     
      public static void main(String[] args) {
-        Principal c = new Principal();
+        CadastroProdutoFornecedor c = new CadastroProdutoFornecedor();
         c.desenharTela();
      }
 }
